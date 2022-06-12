@@ -4,5 +4,6 @@ make:
 	@./hello
 
 clean:
-	rm a.out
-	rm hello
+	$(RM) a.out
+	$(RM) hello
+	$(RM) *.o
