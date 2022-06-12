@@ -1,7 +1,7 @@
 section .data
   msg: db "anato", 10
   msglen: equ $ - msg
-  nb: equ 1
+  nb: equ 5
 section .text
 
 _start:
@@ -10,10 +10,13 @@ _start:
 
 l:
   test r9,r9
-  jz exit
+  jz end_l
   sub r9,1
   call print
   jmp l
+  ret
+end_l:
+  ret
 
 print:
   mov rax, 1        ; write(
