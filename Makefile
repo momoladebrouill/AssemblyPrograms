@@ -1,5 +1,5 @@
 make:
-	@nasm -f elf64 hello.asm
+	@nasm -f elf64 loop.asm -o hello.o
 	@ld -s -o hello hello.o
 	@./hello
 
