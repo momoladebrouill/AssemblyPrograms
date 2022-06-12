@@ -4,18 +4,11 @@ section .data
   nb: equ 5
 section .text
 
-_start:
-  mov r9, nb
-  jmp l
-
-l:
-  test r9,r9
-  jz end_l
-  sub r9,1
+loopo:
   call print
-  jmp l
-  ret
-end_l:
+  sub r10,1
+  test r10,r10
+  jnz loopo
   ret
 
 print:
@@ -26,7 +19,10 @@ print:
   syscall
   ret
 
-exit:
+_start:
+  mov r10, nb
+  call loopo
+
   mov rax, 60       ; exit(
   mov rdi, 0        ;   exit_success
   syscall           ; );
